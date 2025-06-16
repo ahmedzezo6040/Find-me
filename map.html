@@ -1,0 +1,258 @@
+<!-- تعريف نوع المستند ولغة الصفحة -->
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <!-- تحديد ترميز الأحرف -->
+    <meta charset="UTF-8">
+    <!-- لضبط عرض الصفحة على الأجهزة المختلفة -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- عنوان الصفحة -->
+    <title>Find Me</title>
+    <!-- أيقونة تظهر في التبويب -->
+    <link rel="icon" href="image/logo.png">
+    <!-- ربط ملف CSS خارجي -->
+    <link rel="stylesheet" href="style.css">
+    <!-- ربط مكتبة Bootstrap لتنسيق واجهة المستخدم -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <!-- شريط التنقل العلوي -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <!-- شعار الموقع -->
+            <img src="image/logo.png" alt="">
+            <!-- اسم الموقع -->
+            <a class="navbar-brand" href="#"> <b>Find Me</b></a>
+            <!-- زر القائمة للهاتف -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- عناصر القائمة -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="map.html"> <b style="color: white;">Map</b></a></li>
+                     <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+ <div class="section">
+        <h1>Home / <span>Map</span></h1>
+    </div>
+    <!-- قسم الخريطة وتحديد الموقع -->
+    <div class="map" id="mylocation">
+        <div class="row">
+            <!-- نموذج البحث -->
+            <div class="form col-lg-6 col-md-6 col-s-6">
+                <div class="form-group">
+                    <!-- حقل نوع المكان -->
+                    <input type="Search" class="form-control" id="placeType" placeholder="Restaurant,Cafe,...">
+                    <!-- زر البحث -->
+                    <button type="submit" onclick="searchNearby()" id="search" class="btn btn-primary">Search</button>
+                    <!-- عرض إحداثيات الموقع -->
+                    <p>خط العرض: <span id="latitude">جاري التحميل...</span></p>
+                    <p>خط الطول: <span id="longitude">جاري التحميل...</span></p>
+                    <!-- زر إظهار موقعي -->
+                    <button type="submit" id="showMapBtn" class="btn btn-primary">Find Me</button>
+                </div>
+            </div>
+            <!-- خريطة Google -->
+            <div class="map-container col-lg-6 col-md-6 col-s-6">
+                <div id="mape"></div>
+                <iframe id="map" src="https://www.google.com/maps/embed?..."></iframe>
+            </div>
+        </div>
+    </div>
+
+     <h1 class="found mb-4 pt-4 text-center">It was found</h1>
+
+  <!-- الفلاتر -->
+  <div class="row  mb-4 filter-row d-flex justify-content-center">
+    <div class="col-md-4">
+      <label for="typeFilter" class="form-label">Places : </label>
+      <select id="typeFilter" class="form-select" onchange="applyFilters()">
+        <option value="all">all</option>
+        <option value="cafes">Cafes</option>
+        <option value="Hospital">Hospital</option>
+        <option value="Doctors">Doctors</option>
+        <option value="Restaurant">Restaurant</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label for="ratingFilter" class="form-label">Fillter : </label>
+      <select id="ratingFilter" class="form-select" onchange="applyFilters()">
+        <option value="all">All</option>
+        <option value="1">Near</option>
+        <option value="2">Far</option>
+        <option value="3">Highest rating</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- كروت -->
+  <div id="cardsContainer" class="row row-cols-1 row-cols-md-3 g-4">
+     <div class="col card-item" data-type="Restaurant" data-rating="1">
+      <div class="card bg-dark h-100">
+        <img src="image/res-1.jpg" class="card-img-top" alt="أثاث">
+        <div class="card-body bg-dark">
+          <h5 class="card-title text-light">Restaurant</h5>
+          <p class="card-text">38 m</p>
+          <p class="card-text">Rate : 3⭐</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="col card-item" data-type="Doctors" data-rating="1">
+      <div class="card bg-dark h-100">
+        <img src="image/doc-1" class="card-img-top" alt="كتب">
+        <div class="card-body bg-dark">
+          <h5 class="card-title text-light">Doctors</h5>
+          <p class="card-text">26 m</p>
+          <p class="card-text">Rate : 2⭐</p>
+        </div>
+      </div>
+    </div>
+ <div class="col card-item" data-type="Hospital" data-rating="1">
+      <div class="card bg-dark h-100">
+        <img src="image/hos-1.jpg" class="card-img-top" alt="ملابس">
+        <div class="card-body bg-dark">
+          <h5 class="card-title text-light">Hospital</h5>
+          <p class="card-text">350 m</p>
+          <p class="card-text">Rate : 1⭐</p>
+        </div>
+      </div>
+    </div>
+    <div class="col card-item" data-type="cafes" data-rating="1">
+      <div class="card bg-dark h-100">
+        <img src="image/cafe" class="card-img-top" alt="إلكترونيات">
+        <div class="card-body bg-dark">
+          <h5 class="card-title text-light">Cafe</h5>
+          <p class="card-text">120 m</p>
+          <p class="card-text">Rate : 3⭐</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col card-item" data-type="Hospital" data-rating="3">
+      <div class="card bg-dark h-100">
+        <img src="image/hos-2.jpg" class="card-img-top" alt="ملابس">
+        <div class="card-body bg-dark">
+          <h5 class="card-title text-light">Hospital</h5>
+          <p class="card-text">790 m</p>
+          <p class="card-text">Rate : 5⭐</p>
+        </div>
+      </div>
+    </div>
+<div class="col card-item" data-type="cafes" data-rating="3">
+      <div class="card bg-dark h-100">
+        <img src="image/cafe-1.jpg" class="card-img-top" alt="إلكترونيات">
+        <div class="card-body bg-dark">
+          <h5 class="card-title text-light">Cafe</h5>
+          <p class="card-text">300 m</p>
+          <p class="card-text"> Rate : 5⭐ </p>
+        </div>
+      </div>
+    </div>
+ <div class="col card-item" data-type="Hospital" data-rating="2">
+      <div class="card bg-dark h-100">
+        <img src="image/hos-3.jpg" class="card-img-top" alt="ملابس">
+        <div class="card-body bg-dark">
+          <h5 class="card-title text-light">Hospital</h5>
+          <p class="card-text">1500 m</p>
+          <p class="card-text">Rate : 2⭐</p>
+        </div>
+      </div>
+    </div>
+    <div class="col card-item" data-type="Doctors" data-rating="3">
+      <div class="card bg-dark h-100">
+        <img src="image/doc-2.jpg" class="card-img-top" alt="كتب">
+        <div class="card-body bg-dark">
+          <h5 class="card-title text-light">Doctors</h5>
+          <p class="card-text">87</p>
+          <p class="card-text">Rate : 5⭐</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col card-item" data-type="Restaurant" data-rating="2">
+      <div class="card bg-dark h-100">
+        <img src="image/res-2" class="card-img-top" alt="أثاث">
+        <div class="card-body bg-dark">
+          <h5 class="card-title text-light">Restaurant</h5>
+          <p class="card-text">:360 m</p>
+          <p class="card-text">Rate : 4⭐</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col card-item" data-type="Doctors" data-rating="2">
+      <div class="card bg-dark h-100">
+        <img src="image/doc-3.jpg" class="card-img-top" alt="كتب">
+        <div class="card-body bg-dark">
+          <h5 class="card-title text-light">Doctors</h5>
+          <p class="card-text">216 m</p>
+          <p class="card-text">Rate : 4⭐</p>
+        </div>
+      </div>
+    </div>
+
+<div class="col card-item" data-type="cafes" data-rating="2">
+      <div class="card bg-dark h-100">
+        <img src="image/cafe-2.jpg" class="card-img-top" alt="إلكترونيات">
+        <div class="card-body bg-dark">
+          <h5 class="card-title text-light">Cafe</h5>
+          <p class="card-text">500 m</p>
+          <p class="card-text">Rate : 2⭐</p>
+        </div>
+      </div>
+    </div>
+     <div class="col  card-item" data-type="Restaurant" data-rating="3">
+      <div class="card bg-dark h-100">
+        <img src="image/res-3" class="card-img-top" alt="أثاث">
+        <div class="card-body bg-dark">
+          <h5 class="card-title text-light">Restaurant</h5>
+          <p class="card-text">112 m</p>
+          <p class="card-text">Rate : 5⭐</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+    <!-- قسم التواصل -->
+    <section class="contact text-center" id="contact">
+        <h2 class="fw-bold">Contact Us</h2>
+        <div class="container mt-3">
+            <div class="row">
+                <!-- معلومات المكتب -->
+                <div class="col-md-6 col-lg-12">
+                    <h5 class="fw-bold">Main Office</h5>
+                    <p>123 Anywhere St., Any City, Any Country</p>
+                    <p>(123) 456 7890</p>
+                </div>
+                <!-- وسائل التواصل الاجتماعي -->
+                <div class="col-md-6 col-lg-12">
+                    <h5 class="fw-bold">Social Media</h5>
+                    <p>
+                        <a href="#">Facebook</a> | 
+                        <a href="#">Instagram</a> | 
+                        <a href="#">Twitter</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- حقوق النشر -->
+        <p class="mt-4">Copyright &copy; <a href="#">University Team</a></p>
+    </section>
+
+    <!-- ربط ملفات JavaScript -->
+    <script src="index.js"></script>
+    <!-- مكتبة Bootstrap للوظائف الديناميكية -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

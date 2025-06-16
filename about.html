@@ -1,0 +1,184 @@
+<!-- تعريف نوع المستند ولغة الصفحة -->
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <!-- تحديد ترميز الأحرف -->
+    <meta charset="UTF-8">
+    <!-- لضبط عرض الصفحة على الأجهزة المختلفة -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- عنوان الصفحة -->
+    <title>Find Me</title>
+    <!-- أيقونة تظهر في التبويب -->
+    <link rel="icon" href="image/logo.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+           <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+
+    <!-- ربط ملف CSS خارجي -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+
+    <!-- ربط مكتبة Bootstrap لتنسيق واجهة المستخدم -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+
+    <!-- شريط التنقل العلوي -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <!-- شعار الموقع -->
+            <img src="image/logo.png" alt="">
+            <!-- اسم الموقع -->
+            <a class="navbar-brand" href="#"> <b>Find Me</b></a>
+            <!-- زر القائمة للهاتف -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- عناصر القائمة -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html"> <b style="color: white;">About</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="map.html">Map</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="section">
+        <h1>Home / <span>About</span></h1>
+    </div>
+
+  
+
+    <!-- قسم من نحن -->
+    <div class="about" id="about">
+        <div class="row">
+            <!-- معلومات تعريفية -->
+            <div class="about-section col-lg-7">
+                <h1>Who are we?</h1>
+                <p>We are a team of university students to help you find places near you,<br> such as:</p>
+                <ul>
+                    <li>Restaurants</li>
+                    <li>Cafes</li>
+                    <li>Hospitals, and other services</li>
+                </ul>
+            </div>
+            <!-- صورة توضيحية -->
+            <div class="img col-lg-5">
+                <img src="image/about.webp" width="80%" alt="">
+            </div>
+        </div>
+    </div>
+
+<!-- customer -->
+      <div id="customer" class="customer">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2> <img src="image/chat.png" alt="#"/> Our Customer Feedback</h2>
+                  </div>
+               </div>
+            </div>
+            <div id="myCarousel" class="carousel slide customer_Carousel " data-ride="carousel">
+               <ol class="carousel-indicators">
+                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel" data-slide-to="1"></li>
+                  <li data-target="#myCarousel" data-slide-to="2"></li>
+               </ol>
+               <div class="carousel-inner">
+                  <div class="carousel-item active">
+                     <div class="container">
+                        <div class="carousel-caption ">
+                           <div class="test_box">
+                              <i><img src="image/profile.png" alt="#"/></i>
+                              <h4>Rohali jonson</h4>
+                              <span>customer</span>
+                              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined </p>
+                              <img src="image/quote.png" alt="#"/>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="carousel-item">
+                     <div class="container">
+                        <div class="carousel-caption">
+                           <div class="test_box">
+                              <i><img src="image/profile.png" alt="#"/></i>
+                              <h4>Rohali jonson</h4>
+                              <span>customer</span>
+                              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined </p>
+                              <img src="image/quote.png" alt="#"/>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="carousel-item">
+                     <div class="container">
+                        <div class="carousel-caption">
+                           <div class="test_box">
+                              <i><img src="image/profile.png" alt="#"/></i>
+                              <h4>Rohali jonson</h4>
+                              <span>customer</span>
+                              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined </p>
+                              <img src="image/quote.png" alt="#"/>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+               <i class="fa fa-chevron-left" aria-hidden="true"></i>
+               </a>
+               <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+               <i class="fa fa-chevron-right" aria-hidden="true"></i>
+               </a>
+            </div>
+         </div>
+      </div>
+      <!-- end customer -->
+
+
+
+    <!-- قسم التواصل -->
+    <section class="contact text-center" id="contact">
+        <h2 class="fw-bold">Contact Us</h2>
+        <div class="container mt-3">
+            <div class="row">
+                <!-- معلومات المكتب -->
+                <div class="col-md-6 col-lg-12">
+                    <h5 class="fw-bold">Main Office</h5>
+                    <p>123 Anywhere St., Any City, Any Country</p>
+                    <p>(123) 456 7890</p>
+                </div>
+                <!-- وسائل التواصل الاجتماعي -->
+                <div class="col-md-6 col-lg-12">
+                    <h5 class="fw-bold">Social Media</h5>
+                    <p>
+                        <a href="#">Facebook</a> | 
+                        <a href="#">Instagram</a> | 
+                        <a href="#">Twitter</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- حقوق النشر -->
+        <p class="mt-4">Copyright &copy; <a href="#">University Team</a></p>
+    </section>
+
+    <!-- ربط ملفات JavaScript -->
+    <script src="index.js"></script>
+    <!-- مكتبة Bootstrap للوظائف الديناميكية -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+</body>
+</html>
